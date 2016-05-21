@@ -4,28 +4,53 @@ require './lib/insertion_sort'
 
 class InsertionSortTest < Minitest::Test
 
+  def test_that_insertion_sort_is_created_with_no_input
+    sorter = InsertionSort.new
 
-def test_that_insertion_sort_can_hold_data
-  sorter = InsertionSort.new ([ "d", "b", "a", "c"])
+    assert sorter
+  end
 
-  assert_equal [ "d", "b", "a", "c"], sorter.unsorted_data
-end
+  def test_sorting_3_letters
+    sorter = InsertionSort.new
 
-def test_that_creates_a_sorted_array
-  sorter = InsertionSort.new ([ "d", "b", "c", "a"])
-  binding.pry
+    assert_equal [ "a", "b", "c"], sorter.sort([ "b", "a", "c"])
+  end
 
-  assert_equal [ "a", "b", "c", "d"], sorter.sorted_data
-end
+  def test_sorting_4_letters
+    sorter = InsertionSort.new
 
-def test_that_creates_a_sorted_array
-  sorter = InsertionSort.new ([ "d", "b", "c", "a"])
-  binding.pry
+    assert_equal [ "a", "b", "c", "d"], sorter.sort([ "d", "b", "c", "a"])
+  end
 
-  assert_equal [ "a", "b", "c", "d"], sorter.sorted_data
-end
+  def test_sorting_capital_letters
+    sorter = InsertionSort.new
 
+    assert_equal [ "A", "B", "C", "D" ], sorter.sort([ "D", "A", "B", "C"])
+  end
 
+  def test_sorting_capital_letters_in_the_array
+    sorter = InsertionSort.new
+
+    assert_equal [ "A", "B", "C" ], sorter.sort([ "B", "C", "A"])
+  end
+
+  def test_sorting_array_with_more_then_4_items
+    sorter = InsertionSort.new
+
+    assert_equal [ "a", "b", "c", "d", "e", "f", "g", "h", "i" ], sorter.sort([ "a", "h", "c", "g", "f", "b", "d", "e", "i" ])
+  end
+
+  def test_sorting_words_in_the_array
+    sorter = InsertionSort.new
+
+    assert_equal [ "code", "hello", "turing" ], sorter.sort([ "hello", "turing", "code" ])
+  end
+
+  def test_sorting_numbers_in_the_array
+    sorter = InsertionSort.new
+
+    assert_equal [ 1, 2, 3, 4, 5, 6 ], sorter.sort([ 4, 1, 3, 6, 2, 5 ])
+  end
 
 
 end
