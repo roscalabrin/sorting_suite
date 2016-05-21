@@ -18,6 +18,13 @@ def test_that_creates_a_sorted_array
   assert_equal [ "a", "b", "c", "d"], sorter.sorted_data
 end
 
+def test_that_creates_a_sorted_array
+  sorter = InsertionSort.new ([ "d", "b", "c", "a"])
+  binding.pry
+
+  assert_equal [ "a", "b", "c", "d"], sorter.sorted_data
+end
+
 
 
 
