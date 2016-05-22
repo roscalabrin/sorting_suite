@@ -52,5 +52,10 @@ class InsertionSortTest < Minitest::Test
     assert_equal [ "A", "A", "B", "C" ], sorter.sort([ "B", "C", "A", "A"])
   end
 
+  def test_sorting_long_array_with_duplicate_elements
+    sorter = InsertionSort.new
+
+    assert_equal [ "a", "b", "b", "b", "c", "d", "e", "f", "f", "g", "h", "i" ], sorter.sort([ "f", "a", "h", "b", "c", "g", "f", "b", "d", "e", "i", "b" ])
+  end
 
 end

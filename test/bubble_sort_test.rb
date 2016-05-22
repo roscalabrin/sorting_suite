@@ -6,7 +6,7 @@ class BubbleSortTest < Minitest::Test
 
   def test_that_bubble_sort_is_created_with_no_input
     sorter = BubbleSort.new
-
+  
     assert sorter
   end
 
@@ -43,23 +43,27 @@ class BubbleSortTest < Minitest::Test
   def test_sorting_numbers
     sorter = BubbleSort.new
 
-    assert_equal [ 1, 2, 3, 4, 5, 6 ], sorter.sort([ 4, 1, 3, 6, 2, 5 ])
+    assert_equal [ 1, 2, 3, 4, 5, 6 ], sorter.sort([ 4, 1, 3, 6, 2, 5])
   end
 
-  def test_sorting_capital_letters_in_the_array#not working
-    skip
+  def test_sorting_with_duplicate_elements
     sorter = BubbleSort.new
 
     assert_equal [ "A", "A", "B", "C" ], sorter.sort([ "B", "C", "A", "A"])
   end
 
-  def test_sorting_lowercase_and_upcase_letters_in_the_array #not working
-    skip
+  def test_sorting_long_array_with_duplicate_elements
     sorter = BubbleSort.new
-    binding.pry
 
-    assert_equal [ "A", "B", "c", "D", "E", "f" ], sorter.sort([ "A", "c", "f", "B", "d", "E" ])
+    assert_equal [ "a", "b", "b", "b", "c", "d", "e", "f", "f", "g", "h", "i" ], sorter.sort([ "f", "a", "h", "b", "c", "g", "f", "b", "d", "e", "i", "b" ])
   end
+
+  # def test_sorting_lowercase_and_upcase_letters_in_the_array #not working
+  #   skip
+  #   sorter = BubbleSort.new
+  #
+  #   assert_equal [ "A", "B", "c", "D", "E", "f" ], sorter.sort([ "A", "c", "f", "B", "d", "E" ])
+  # end
 
 
 end

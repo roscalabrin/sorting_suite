@@ -1,12 +1,7 @@
-
 class BubbleSort
+
   attr_accessor :unsorted_data,
                 :bubbling_iteration
-
-  def initialize
-    # @bubbling_iteration
-    @unsorted_data
-  end
 
   def sort(unsorted_data)
     @unsorted_data = unsorted_data
@@ -32,12 +27,11 @@ class BubbleSort
   previous = @unsorted_data[counter]
   current = @unsorted_data[counter + 1]
     if previous >= current
-      @unsorted_data.delete(current)
+      @unsorted_data.delete_at(counter + 1)
       @unsorted_data.insert(counter, current)
     end
   counter += 1
   track_bubbling_process(counter)
   end
-
 
 end

@@ -3,11 +3,6 @@ class InsertionSort
                 :sorted_data,
                 :count
 
-  def initialize
-    @unsorted_data
-    # @sorted_data
-  end
-
   def sort(unsorted_data)
     @unsorted_data = unsorted_data
     @sorted_data = []
