@@ -6,74 +6,55 @@ module MergeSort
 
   def sort(unsorted_data)
     @unsorted_data = unsorted_data
-    @sorted_data = []
-    divide_data
+    @sorted_data
+    divide_data(unsorted_data)
   end
 
   class Divide
   include MergeSort
-  attr_accessor :unsorted_data,
-                :sorted_data
+  attr_accessor :unsorted_data
 
-    def initialize
-      @unsorted_data
+    def divide_data(unsorted_data)
+      n = unsorted_data.count
+      return unsorted_data if n <= 1 # base case to stop recursion
+
+      left_side = divide_data(unsorted_data[0...n / 2])
+      right_side = divide_data(unsorted_data[n / 2...n]) #right side is bigger if odd
+
+      merge_items(left_side, right_side)
     end
 
-    def divide_data
-      new_ary = @unsorted_data.partition { |item| @unsorted_data.index(item) <= (@unsorted_data.length/2) - 1}
-      compare_items(new_ary)
+    def merge_items(left_side, right_side)
+    @sorted_data = []
+
+      while left_side.empty? == false && right_side.empty? == false
+        if left_side[0] <= right_side[0]
+          @sorted_data << left_side[0]
+          left_side.delete(left_side[0])
+        else
+          if left_side[0] > right_side[0]
+            @sorted_data << right_side[0] #add to the sorted array
+            right_side.delete(right_side[0])
+          end
+          end
+        end
+      check_for_empty_sides(right_side, left_side)
     end
 
-    def compare_items(new_ary)
-    new_ary.map do |item|
-      if item[0] > item[1]
-      item[0], item[1] = item[1], item[0]
-      end
-     end
-     merge(new_ary)
-    end
-
-    def merge(new_ary)
-      if new_ary.empty?
-      # final(sorted_data)
-      @sorted_data
-      else
-        check_nested_array_empty(new_ary)
-      end
-    end
-
-    def check_nested_array_empty(new_ary)
-      if new_ary[0].empty?
-        @sorted_data << new_ary[1]
+    def check_for_empty_sides(right_side, left_side)
+      if right_side.empty?
+        @sorted_data << left_side
         @sorted_data = @sorted_data.flatten
-      elsif new_ary[1].empty?
-          @sorted_data << new_ary[0]
+      elsif left_side.empty?
+          @sorted_data << right_side
           @sorted_data = @sorted_data.flatten
       else
-      merging_items(new_ary)
+        @sorted_data
       end
     end
 
-    def merging_items(new_ary)
-      if new_ary[0][0] < new_ary[1][0]
-        @sorted_data << new_ary[0][0]
-        new_ary[0].delete(new_ary[0][0])
-      else
-        if new_ary[0][0] > new_ary[1][0]
-          @sorted_data << new_ary[1][0]
-          new_ary[1].delete(new_ary[1][0])
-        end
-      end
-      merge(new_ary)
-    end
 
   end
 
 
-
-
 end
-
-# require "./lib/merge_sort.rb"
-# sorter = MergeSort.sort(["d", "b", "a", "c"])
-# # sorter.sort(["d", "b", "a", "c"])
