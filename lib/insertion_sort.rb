@@ -5,7 +5,7 @@ class InsertionSort
 
   def initialize
     @unsorted_data
-    @sorted_data
+    # @sorted_data
   end
 
   def sort(unsorted_data)

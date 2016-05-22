@@ -28,12 +28,6 @@ class InsertionSortTest < Minitest::Test
     assert_equal [ "A", "B", "C", "D" ], sorter.sort([ "D", "A", "B", "C"])
   end
 
-  def test_sorting_capital_letters
-    sorter = InsertionSort.new
-
-    assert_equal [ "A", "B", "C", "D" ], sorter.sort([ "D", "A", "B", "C"])
-  end
-
   def test_sorting_array_with_more_then_4_items
     sorter = InsertionSort.new
 

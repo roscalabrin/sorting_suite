@@ -4,7 +4,7 @@ class BubbleSort
                 :bubbling_iteration
 
   def initialize
-    @bubbling_iteration
+    # @bubbling_iteration
     @unsorted_data
   end
 

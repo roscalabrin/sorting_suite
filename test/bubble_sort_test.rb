@@ -11,7 +11,7 @@ class BubbleSortTest < Minitest::Test
   end
 
   def test_sorting_3_letters
-    sorter = InsertionSort.new
+    sorter = BubbleSort.new
 
     assert_equal [ "a", "b", "c"], sorter.sort([ "b", "a", "c"])
   end
