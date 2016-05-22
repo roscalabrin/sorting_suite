@@ -11,21 +11,18 @@ class BubbleSort
   def sort(unsorted_data)
     @unsorted_data = unsorted_data
     @bubbling_iteration = 1
-    sort_2
+    sort_validation
   end
 
-  def sort_2
-    if @bubbling_iteration == unsorted_data.count
-      return unsorted_data
-    else
-      sort_validation
-    end
+  def sort_validation
+    return unsorted_data if @bubbling_iteration == unsorted_data.count
+    track_bubbling_process
   end
 
-  def sort_validation(counter = 0)
+  def track_bubbling_process(counter = 0)
     if counter == (@unsorted_data.count - @bubbling_iteration)
       @bubbling_iteration += 1
-      sort_2
+      sort_validation
     else
       compare_items(counter)
     end
@@ -34,12 +31,12 @@ class BubbleSort
   def compare_items(counter)
   previous = @unsorted_data[counter]
   current = @unsorted_data[counter + 1]
-    if previous > current
+    if previous >= current
       @unsorted_data.delete(current)
       @unsorted_data.insert(counter, current)
     end
   counter += 1
-  sort_validation(counter)
+  track_bubbling_process(counter)
   end
 
 

@@ -1,7 +1,6 @@
 
 class MergeSort
   # include MergeSort
-
   attr_accessor :unsorted_data,
                 :sorted_data
 
@@ -13,10 +12,10 @@ class MergeSort
   def sort(unsorted_data)
     @unsorted_data = unsorted_data
     @sorted_data = []
-    divide_in_halves
+    divide_data
   end
 
-  def divide_in_halves
+  def divide_data
     new_ary = @unsorted_data.partition { |item| @unsorted_data.index(item) <= (@unsorted_data.length/2) - 1}
     compare_items(new_ary)
   end

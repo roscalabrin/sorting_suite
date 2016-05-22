@@ -28,10 +28,10 @@ class InsertionSortTest < Minitest::Test
     assert_equal [ "A", "B", "C", "D" ], sorter.sort([ "D", "A", "B", "C"])
   end
 
-  def test_sorting_capital_letters_in_the_array
+  def test_sorting_capital_letters
     sorter = InsertionSort.new
 
-    assert_equal [ "A", "B", "C" ], sorter.sort([ "B", "C", "A"])
+    assert_equal [ "A", "B", "C", "D" ], sorter.sort([ "D", "A", "B", "C"])
   end
 
   def test_sorting_array_with_more_then_4_items
@@ -40,16 +40,22 @@ class InsertionSortTest < Minitest::Test
     assert_equal [ "a", "b", "c", "d", "e", "f", "g", "h", "i" ], sorter.sort([ "a", "h", "c", "g", "f", "b", "d", "e", "i" ])
   end
 
-  def test_sorting_words_in_the_array
+  def test_sorting_words
     sorter = InsertionSort.new
 
     assert_equal [ "code", "hello", "turing" ], sorter.sort([ "hello", "turing", "code" ])
   end
 
-  def test_sorting_numbers_in_the_array
+  def test_sorting_numbers
     sorter = InsertionSort.new
 
     assert_equal [ 1, 2, 3, 4, 5, 6 ], sorter.sort([ 4, 1, 3, 6, 2, 5 ])
+  end
+
+  def test_sorting_with_duplicate_elements
+    sorter = InsertionSort.new
+
+    assert_equal [ "A", "A", "B", "C" ], sorter.sort([ "B", "C", "A", "A"])
   end
 
 
