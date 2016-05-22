@@ -1,9 +1,13 @@
+
 class MergeSort
+  # include MergeSort
+
   attr_accessor :unsorted_data,
                 :sorted_data
 
   def initialize
     @unsorted_data
+    @sorted_data
   end
 
   def sort(unsorted_data)
@@ -38,6 +42,9 @@ class MergeSort
     if new_ary[0].empty?
       @sorted_data << new_ary[1]
       @sorted_data = @sorted_data.flatten
+    elsif new_ary[1].empty?
+        @sorted_data << new_ary[0]
+        @sorted_data = @sorted_data.flatten
     else
     merging_items(new_ary)
     end
@@ -53,7 +60,7 @@ class MergeSort
         new_ary[1].delete(new_ary[1][0])
       end
     end
-  merge(new_ary)
+    merge(new_ary)
   end
 
 end
