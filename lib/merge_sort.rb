@@ -1,7 +1,7 @@
 module MergeSort
 
   def self.new
-    Divide.new
+    Sort.new
   end
 
   def sort(unsorted_data)
@@ -10,7 +10,7 @@ module MergeSort
     divide_data(unsorted_data)
   end
 
-  class Divide
+  class Sort
   include MergeSort
   attr_accessor :unsorted_data
 
@@ -18,8 +18,8 @@ module MergeSort
       n = unsorted_data.count
       return unsorted_data if n <= 1 # base case to stop recursion
 
-      left_side = divide_data(unsorted_data[0...n / 2])
-      right_side = divide_data(unsorted_data[n / 2...n]) #right side is bigger if odd
+      left_side = divide_data(unsorted_data[0...n/2])
+      right_side = divide_data(unsorted_data[n/2...n]) #right side is bigger if odd
 
       merge_items(left_side, right_side)
     end

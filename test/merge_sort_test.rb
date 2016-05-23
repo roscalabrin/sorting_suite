@@ -1,7 +1,7 @@
 require './test/test_helper'
 require './lib/merge_sort'
 
-class MergeSort::DividetTest < Minitest::Test
+class MergeSort::SortTest < Minitest::Test
 
   def test_that_merge_sort_is_created_with_no_input
     sorter = MergeSort.new
@@ -11,14 +11,12 @@ class MergeSort::DividetTest < Minitest::Test
   end
 
   def test_sorting_letters
-    # skip
     sorter = MergeSort.new
 
     assert_equal ["a", "b", "c", "d"], sorter.sort(["d", "b", "a", "c"])
   end
 
   def test_sorting_4_numbers
-    # skip
     sorter = MergeSort.new
 
     assert_equal [ 1, 2, 3, 4 ], sorter.sort([ 3, 1, 4, 2 ])
@@ -40,6 +38,18 @@ class MergeSort::DividetTest < Minitest::Test
     sorter = MergeSort.new
 
     assert_equal [ "a", "b", "c", "d", "e", "f", "g", "h", "i" ], sorter.sort([ "a", "h", "c", "g", "f", "b", "d", "e", "i" ])
+  end
+
+  def test_sorting_with_duplicate_elements
+    sorter = InsertionSort.new
+
+    assert_equal [ "A", "A", "B", "C" ], sorter.sort([ "B", "C", "A", "A"])
+  end
+
+  def test_sorting_long_array_with_duplicate_elements
+    sorter = InsertionSort.new
+
+    assert_equal [ "a", "b", "b", "b", "c", "d", "e", "f", "f", "g", "h", "i" ], sorter.sort([ "f", "a", "h", "b", "c", "g", "f", "b", "d", "e", "i", "b" ])
   end
 
 end
