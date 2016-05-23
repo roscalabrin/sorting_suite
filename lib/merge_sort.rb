@@ -7,12 +7,17 @@ module MergeSort
   def sort(unsorted_data)
     @unsorted_data = unsorted_data
     @sorted_data
-    divide_data(unsorted_data)
+    validate_input_is_not_empty
   end
 
   class Sort
   include MergeSort
   attr_accessor :unsorted_data
+
+    def validate_input_is_not_empty
+      return unsorted_data if @unsorted_data.empty?
+      divide_data(unsorted_data)
+    end
 
     def divide_data(unsorted_data)
       n = unsorted_data.count

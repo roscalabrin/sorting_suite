@@ -6,6 +6,11 @@ class InsertionSort
   def sort(unsorted_data)
     @unsorted_data = unsorted_data
     @sorted_data = []
+    validate_input_is_not_empty
+  end
+
+  def validate_input_is_not_empty
+    return unsorted_data if @unsorted_data.empty?
     sort_validation
   end
 

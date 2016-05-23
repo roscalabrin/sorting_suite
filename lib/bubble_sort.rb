@@ -10,6 +10,7 @@ class BubbleSort
   end
 
   def sort_validation
+    return unsorted_data if @unsorted_data.empty?
     return unsorted_data if @bubbling_iteration == unsorted_data.count
     track_bubbling_process
   end

@@ -64,4 +64,16 @@ class InsertionSortTest < Minitest::Test
     assert_equal [ "", "a", "b", "c", "d" ], sorter.sort([ "d", "b", "a", "", "c"])
   end
 
+  def test_sorting_reverse_array
+    sorter = InsertionSort.new
+
+    assert_equal [1, 2, 3, 4, 5, 6], sorter.sort([6, 5, 4, 3, 2, 1])
+  end
+
+  def test_sorting_empty_array
+    sorter = InsertionSort.new
+
+    assert_equal [], sorter.sort([])
+  end
+
 end
