@@ -30,14 +30,14 @@ module MergeSort
       while left_side.empty? == false && right_side.empty? == false
         if left_side[0] <= right_side[0]
           @sorted_data << left_side[0]
-          left_side.delete(left_side[0])
+          left_side.delete_at(0)
         else
           if left_side[0] > right_side[0]
             @sorted_data << right_side[0] #add to the sorted array
-            right_side.delete(right_side[0])
-          end
+            right_side.delete_at(0)
           end
         end
+      end
       check_for_empty_sides(right_side, left_side)
     end
 

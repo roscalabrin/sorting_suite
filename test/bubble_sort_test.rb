@@ -6,7 +6,7 @@ class BubbleSortTest < Minitest::Test
 
   def test_that_bubble_sort_is_created_with_no_input
     sorter = BubbleSort.new
-  
+
     assert sorter
   end
 
@@ -58,12 +58,11 @@ class BubbleSortTest < Minitest::Test
     assert_equal [ "a", "b", "b", "b", "c", "d", "e", "f", "f", "g", "h", "i" ], sorter.sort([ "f", "a", "h", "b", "c", "g", "f", "b", "d", "e", "i", "b" ])
   end
 
-  # def test_sorting_lowercase_and_upcase_letters_in_the_array #not working
-  #   skip
-  #   sorter = BubbleSort.new
-  #
-  #   assert_equal [ "A", "B", "c", "D", "E", "f" ], sorter.sort([ "A", "c", "f", "B", "d", "E" ])
-  # end
+  def test_sorting_with_an_empty_string
+    sorter = BubbleSort.new
+
+    assert_equal [ "", "a", "b", "c", "d" ], sorter.sort([ "d", "b", "a", "", "c"])
+  end
 
 
 end

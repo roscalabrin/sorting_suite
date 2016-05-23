@@ -24,14 +24,14 @@ class BubbleSort
   end
 
   def compare_items(counter)
-  previous = @unsorted_data[counter]
-  current = @unsorted_data[counter + 1]
-    if previous >= current
-      @unsorted_data.delete_at(counter + 1)
-      @unsorted_data.insert(counter, current)
-    end
-  counter += 1
-  track_bubbling_process(counter)
+    previous = @unsorted_data[counter]
+    current = @unsorted_data[counter + 1]
+      if previous >= current
+        @unsorted_data.delete_at(counter + 1)
+        @unsorted_data.insert(counter, current)
+      end
+    counter += 1
+    track_bubbling_process(counter)
   end
 
 end

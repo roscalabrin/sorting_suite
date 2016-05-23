@@ -21,13 +21,13 @@ class InsertionSort
   end
 
   def compare_items(item_removed)
-  n = sorted_data.select { |item| (item < item_removed)}.pop
-    if n.nil?
-      sorted_data.insert(0, item_removed)
-    else
-    index = sorted_data.index(n) + 1
-    sorted_data.insert(index, item_removed)
-    end
+    n = sorted_data.select { |item| (item < item_removed)}.pop
+      if n.nil?
+        sorted_data.insert(0, item_removed)
+      else
+      index = sorted_data.index(n) + 1
+      sorted_data.insert(index, item_removed)
+      end
     sort_validation
   end
 

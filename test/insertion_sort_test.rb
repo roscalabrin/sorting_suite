@@ -58,4 +58,10 @@ class InsertionSortTest < Minitest::Test
     assert_equal [ "a", "b", "b", "b", "c", "d", "e", "f", "f", "g", "h", "i" ], sorter.sort([ "f", "a", "h", "b", "c", "g", "f", "b", "d", "e", "i", "b" ])
   end
 
+  def test_sorting_with_an_empty_string
+    sorter = InsertionSort.new
+
+    assert_equal [ "", "a", "b", "c", "d" ], sorter.sort([ "d", "b", "a", "", "c"])
+  end
+
 end
